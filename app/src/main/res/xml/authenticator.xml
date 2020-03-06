@@ -1,0 +1,6 @@
+<account-authenticator xmlns:android="http://schemas.android.com/apk/res/android"
+    android:accountType="com.actual.auth"
+    android:icon="@drawable/ic_launcher_background"
+    android:smallIcon="@drawable/ic_launcher_background"
+    android:label="Actual"
+    android:accountPreferences="@xml/auth_preference"></account-authenticator>
