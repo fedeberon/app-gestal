@@ -12,6 +12,7 @@ import com.ideaas.services.domain.ItemEvaluado;
 import com.ideas.actual.R;
 
 import java.util.List;
+import java.util.Objects;
 
 public class ItemEvaluadoAdapter extends ArrayAdapter<ItemEvaluado> {
 
@@ -27,7 +28,7 @@ public class ItemEvaluadoAdapter extends ArrayAdapter<ItemEvaluado> {
         TextView name = convertView.findViewById(R.id.item_to_evaluate);
         name.setText(itemEvaluado.getItem().getValue());
         RatingBar  ratingBar = convertView.findViewById(R.id.ratingBar);
-        ratingBar.setRating(itemEvaluado.getRating());
+        ratingBar.setRating(Objects.nonNull(itemEvaluado.getRating()) ? itemEvaluado.getRating() : 0);
         ratingBar.setIsIndicator(true);
 
         return convertView;
