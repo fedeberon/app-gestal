@@ -12,6 +12,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -36,12 +38,19 @@ public class HomeActivity extends AppCompatActivity {
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow,
-                R.id.nav_tools, R.id.nav_share, R.id.nav_send, R.id.nav_colaboradores, R.id.nav_evaluaciones)
+                R.id.nav_tools, R.id.nav_share, R.id.nav_send,
+                R.id.nav_colaboradores, R.id.nav_evaluaciones, R.id.nav_consideraciones)
                 .setDrawerLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+
+        View inflatedView = getLayoutInflater().inflate(R.layout.nav_header_home, null);
+        TextView username = inflatedView.findViewById(R.id.username);
+        String user = getAccount(AccountManager.get(this)).name;
+        username.setText(user);
+
     }
 
     @Override
@@ -83,5 +92,10 @@ public class HomeActivity extends AppCompatActivity {
         intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
         overridePendingTransition(0, 0);
         startActivity(intent);
+    }
+
+    private Account getAccount(AccountManager accountManager){
+        Account[] accounts = accountManager.getAccountsByType("com.actual.auth");
+        return accounts[0];
     }
 }

@@ -20,8 +20,6 @@ public class ColaboradorFragment extends Fragment {
     private ListView listViewColaboradores;
     private SwipeActionAdapter mAdapter;
 
-
-
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);

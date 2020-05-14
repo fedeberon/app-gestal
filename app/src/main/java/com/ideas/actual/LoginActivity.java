@@ -18,6 +18,7 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.ideas.actual.configuration.MyAccountAuthenticator;
 import com.ideas.actual.configuration.RetrofitServiceFactory;
@@ -122,13 +123,31 @@ public class LoginActivity extends AccountAuthenticatorActivity {
         call.enqueue(new Callback<Authentication>() {
             @Override
             public void onResponse(Call<Authentication> call, Response<Authentication> response) {
-                if(!response.isSuccessful()) return;
+                if (response.isSuccessful()) {
+                    createAccount(user, response.body().getToken());
+                    addTokenInHeader(response.body().getToken());
+                    startActivity(new Intent(LoginActivity.this, HomeActivity.class));
+                }
+                else{
+                    switch (response.code()) {
+                        case 404:
+                            Toast.makeText(LoginActivity.this, "Servidor no disponible", Toast.LENGTH_SHORT).show();
+                            break;
+                        case 403:
+                            Toast.makeText(LoginActivity.this, "Username o Password incorrecto", Toast.LENGTH_SHORT).show();
+                            break;
 
-                createAccount(user, response.body().getToken());
-                addTokenInHeader(response.body().getToken());
+                        case 500:
+                            Toast.makeText(LoginActivity.this, "Error en el servidor", Toast.LENGTH_SHORT).show();
+                            break;
+                        default:
+                            Toast.makeText(LoginActivity.this, "unknown error", Toast.LENGTH_SHORT).show();
+                            break;
+                    }
+                }
 
-                startActivity(new Intent(LoginActivity.this, HomeActivity.class));
                 showProgress(false);
+
             }
 
             @Override
@@ -179,40 +198,9 @@ public class LoginActivity extends AccountAuthenticatorActivity {
         return true;
     }
 
-    /**
-     * Shows the progress UI and hides the login form.
-     */
-    @TargetApi(Build.VERSION_CODES.HONEYCOMB_MR2)
     private void showProgress(final boolean show) {
-        // On Honeycomb MR2 we have the ViewPropertyAnimator APIs, which allow
-        // for very easy animations. If available, use these APIs to fade-in
-        // the progress spinner.
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB_MR2) {
-            int shortAnimTime = getResources().getInteger(android.R.integer.config_shortAnimTime);
-
-            mLoginFormView.setVisibility(show ? View.GONE : View.VISIBLE);
-            mLoginFormView.animate().setDuration(shortAnimTime).alpha(
-                    show ? 0 : 1).setListener(new AnimatorListenerAdapter() {
-                @Override
-                public void onAnimationEnd(Animator animation) {
-                    mLoginFormView.setVisibility(show ? View.GONE : View.VISIBLE);
-                }
-            });
-
-            mProgressView.setVisibility(show ? View.VISIBLE : View.GONE);
-            mProgressView.animate().setDuration(shortAnimTime).alpha(
-                    show ? 1 : 0).setListener(new AnimatorListenerAdapter() {
-                @Override
-                public void onAnimationEnd(Animator animation) {
-                    mProgressView.setVisibility(show ? View.VISIBLE : View.GONE);
-                }
-            });
-        } else {
-            // The ViewPropertyAnimator APIs are not available, so simply show
-            // and hide the relevant UI components.
-            mProgressView.setVisibility(show ? View.VISIBLE : View.GONE);
-            mLoginFormView.setVisibility(show ? View.GONE : View.VISIBLE);
-        }
+        mProgressView.setVisibility(show ? View.VISIBLE : View.GONE);
+        /*mLoginFormView.setVisibility(show ? View.GONE : View.VISIBLE);*/
     }
 }
 

@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -17,7 +16,6 @@ public class ColaboradorActivity extends AppCompatActivity {
 
     private ListView listViewEvaluacion;
     private EvaluacionDeColaboradorViewModel evaluacionDeColaboradorViewModel;
-    private Button btnVolverAlHome;
     private TextView txtNombreHeader;
     private TextView txtApellidoHeader;
     private TextView txtRolHeader;
@@ -28,6 +26,8 @@ public class ColaboradorActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         this.setTitle("Resultado de Evaluacion");
         setContentView(R.layout.activity_colaborador);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
         listViewEvaluacion = findViewById(R.id.evaluacionDeColaborador);
 
         LayoutInflater inflater = getLayoutInflater();
@@ -36,11 +36,6 @@ public class ColaboradorActivity extends AppCompatActivity {
         txtNombreHeader = findViewById(R.id.txtNombreHeader);
         txtApellidoHeader = findViewById(R.id.txtApellidoHeader);
         txtRolHeader = findViewById(R.id.txtRolHeader);
-
-        btnVolverAlHome = new Button(this);
-        btnVolverAlHome.setText("Atras");
-        btnVolverAlHome.setOnClickListener(v -> backToHome());
-        listViewEvaluacion.addFooterView(btnVolverAlHome);
 
         EvaluacionDelColaborador evaluacionDelColaborador = getColaboradorEvaluado();
         evaluacionDeColaboradorViewModel = new EvaluacionDeColaboradorViewModel(evaluacionDelColaborador.getItemEvaluados());
@@ -54,11 +49,13 @@ public class ColaboradorActivity extends AppCompatActivity {
 
     }
 
-    private void backToHome() {
-        finish();
-    }
-
     private EvaluacionDelColaborador getColaboradorEvaluado() {
         return (EvaluacionDelColaborador) getIntent().getSerializableExtra("evaluacionDelColaborador");
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 }

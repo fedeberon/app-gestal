@@ -6,9 +6,9 @@ public class Utils {
 
 
     public static String getDataColaborador(Colaborador colaborador){
-        return "Colaborador: ".concat(colaborador.getName().toUpperCase())
+        return "Colaborador: "
+                .concat(colaborador.getName())
                 .concat(" ")
-                .concat(". Rol: ")
-                .concat(colaborador.getRol().getName().toUpperCase());
+                .concat(colaborador.getLastName().toUpperCase());
     }
 }

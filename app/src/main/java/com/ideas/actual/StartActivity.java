@@ -99,7 +99,11 @@ public class StartActivity extends AppCompatActivity {
                 startActivityForResult(launch, 200);
 
             } catch (Exception e) {
-                throw new RuntimeException(e);
+                Intent intent = new Intent(StartActivity.this, LoginActivity.class);
+                intent.putExtra(AccountManager.KEY_ACCOUNT_TYPE, "com.actual.auth");
+                intent.putExtra("addAccount", true);
+                startActivityForResult(intent, 22);
+                return;
             }
         }
 

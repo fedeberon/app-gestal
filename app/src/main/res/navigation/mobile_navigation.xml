@@ -53,4 +53,10 @@
         android:label="@string/menu_evaluaciones"
         tools:layout="@layout/fragment_send" />
 
+    <fragment
+        android:id="@+id/nav_consideraciones"
+        android:name="com.ideas.actual.ui.consideracion.ConsideracionDialogFragment"
+        android:label="Consideraciones"
+        tools:layout="@layout/fragment_consideracion_list" />
+
 </navigation>

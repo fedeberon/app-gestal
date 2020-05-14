@@ -1,14 +1,16 @@
 package com.ideas.actual.configuration;
 
+import java.util.concurrent.TimeUnit;
+
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 
 public class RetrofitServiceFactory {
-    public static final String API_BASE_URL = "http://164.68.101.162:8084/api";
+    /*public static final String API_BASE_URL = "http://164.68.101.162:8084/api";*/
     /*public static final String API_BASE_URL = "http://10.0.2.2:8084/api";*/
-   /* public static final String API_BASE_URL = "http://192.168.0.14:8084/api";*/
+    public static final String API_BASE_URL = "http://192.168.0.104:8084/api";
 
 
 
@@ -23,7 +25,10 @@ public class RetrofitServiceFactory {
 
     public static <S> S createService(Class<S> clazz, final String authToken){
         httpClient.addInterceptor(new AuthenticationInterceptor(authToken));
-        OkHttpClient client = httpClient.build();
+        OkHttpClient client = httpClient
+                .readTimeout(60, TimeUnit.SECONDS)
+                .connectTimeout(60, TimeUnit.SECONDS)
+                .build();
         Retrofit retrofit = builder.client(client).build();
 
         return retrofit.create(clazz);
