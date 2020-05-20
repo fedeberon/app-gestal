@@ -46,11 +46,6 @@ public class HomeActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
 
-        View inflatedView = getLayoutInflater().inflate(R.layout.nav_header_home, null);
-        TextView username = inflatedView.findViewById(R.id.username);
-        String user = getAccount(AccountManager.get(this)).name;
-        username.setText(user);
-
     }
 
     @Override

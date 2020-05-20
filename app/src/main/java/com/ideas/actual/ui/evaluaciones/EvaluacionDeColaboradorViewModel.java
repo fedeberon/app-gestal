@@ -11,6 +11,7 @@ import com.ideas.actual.ui.colaborador.ColaboradorViewModel;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -27,6 +28,30 @@ public class EvaluacionDeColaboradorViewModel extends ViewModel {
     public void init(Integer page){
         dataEvaluaciones = new MutableLiveData<>();
         Call<List<EvaluacionDelColaborador>> call = evaluacionesService.findAll(page);
+        call.enqueue(new Callback<List<EvaluacionDelColaborador>>() {
+            @Override
+            public void onResponse(Call<List<EvaluacionDelColaborador>> call, Response<List<EvaluacionDelColaborador>> response) {
+                if(response.isSuccessful()){
+                    dataEvaluaciones.setValue(response.body());
+                }
+            }
+            @Override
+            public void onFailure(Call<List<EvaluacionDelColaborador>> call, Throwable t) {
+                dataEvaluaciones.setValue(Arrays.asList(new EvaluacionDelColaborador()));
+            }
+        });
+    }
+
+    public void init(Integer page, String textToSearch){
+        dataEvaluaciones = new MutableLiveData<>();
+        Call<List<EvaluacionDelColaborador>> call;
+        if(Objects.isNull(textToSearch) || textToSearch.isEmpty()){
+            call = evaluacionesService.findAll(page);
+        }
+        else {
+            call = evaluacionesService.findAll(page, textToSearch);
+        }
+
         call.enqueue(new Callback<List<EvaluacionDelColaborador>>() {
             @Override
             public void onResponse(Call<List<EvaluacionDelColaborador>> call, Response<List<EvaluacionDelColaborador>> response) {

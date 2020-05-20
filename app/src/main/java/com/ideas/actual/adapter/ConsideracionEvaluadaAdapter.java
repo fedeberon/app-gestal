@@ -30,7 +30,7 @@ public class ConsideracionEvaluadaAdapter extends ArrayAdapter<ConsideracionItem
         }
 
         TextView name = convertView.findViewById(R.id.name);
-        name.setText(String.valueOf(consideracionItemEvaluado.getId()));
+        name.setText(String.valueOf(consideracionItemEvaluado.getConsideracion().getValue()));
 
         CheckBox checkBox = convertView.findViewById(R.id.check);
         checkBox.setChecked(consideracionItemEvaluado.isCheckeado());

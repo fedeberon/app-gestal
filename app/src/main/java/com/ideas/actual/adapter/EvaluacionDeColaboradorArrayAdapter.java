@@ -31,6 +31,9 @@ public class EvaluacionDeColaboradorArrayAdapter extends ArrayAdapter<Evaluacion
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.simple_row_colaborador, parent, false);
         }
 
+        TextView id = convertView.findViewById(R.id.id);
+        id.setText(String.valueOf(evaluacion.getId()));
+
         TextView name = convertView.findViewById(R.id.name);
         name.setText(evaluacion.getColaborador().getName());
 

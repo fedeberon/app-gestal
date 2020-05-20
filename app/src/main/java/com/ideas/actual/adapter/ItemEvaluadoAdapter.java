@@ -2,6 +2,8 @@ package com.ideas.actual.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,13 +35,14 @@ public class ItemEvaluadoAdapter extends ArrayAdapter<ItemEvaluado> {
 
         RatingBar  ratingBar = convertView.findViewById(R.id.ratingBar);
         ratingBar.setRating(Objects.nonNull(itemEvaluado.getRating()) ? itemEvaluado.getRating() : 0);
-        ratingBar.setIsIndicator(true);
 
         Button buttonConsideraciones = convertView.findViewById(R.id.buttonConsideraciones);
+        Drawable drawable = getContext().getDrawable(R.drawable.button_login);
         buttonConsideraciones.setText("Consideraciones Evaluadas");
-        buttonConsideraciones.setOnClickListener(v -> {
-            goToConsideraciones(v, itemEvaluado);
-        });
+        buttonConsideraciones.setTextColor(Color.WHITE);
+        buttonConsideraciones.setBackground(drawable);
+
+        buttonConsideraciones.setOnClickListener(v -> goToConsideraciones(v, itemEvaluado));
 
         return convertView;
     }

@@ -10,11 +10,11 @@
             android:title="@string/menu_home" />
         <item
             android:id="@+id/nav_colaboradores"
-            android:icon="@drawable/ic_dashboard_black_24dp"
+            android:icon="@drawable/ic_people_black_24dp"
             android:title="@string/menu_colaboradores" />
         <item
             android:id="@+id/nav_evaluaciones"
-            android:icon="@drawable/ic_evaluation"
+            android:icon="@drawable/ic_playlist_add_check_black_24dp"
             android:title="@string/menu_evaluaciones" />
         <!--
         <item
@@ -26,18 +26,19 @@
             android:icon="@drawable/ic_menu_manage"
             android:title="@string/menu_tools" />-->
     </group>
-<!--
-    <item android:title="Communicate">
+
+    <item android:title="Utilidades">
         <menu>
-            <item
+          <!--  <item
                 android:id="@+id/nav_share"
                 android:icon="@drawable/ic_menu_share"
                 android:title="@string/menu_share" />
             <item
-                android:id="@+id/nav_send"
+                android:id="@+id/nav_buscador"
                 android:icon="@drawable/ic_menu_send"
-                android:title="@string/menu_send" />
+                android:title="@string/menu_search" />
+           -->
         </menu>
-    </item>-->
+    </item>
 
 </menu>

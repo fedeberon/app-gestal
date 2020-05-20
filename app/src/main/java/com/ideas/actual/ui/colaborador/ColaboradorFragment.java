@@ -1,10 +1,14 @@
 package com.ideas.actual.ui.colaborador;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
@@ -19,6 +23,7 @@ public class ColaboradorFragment extends Fragment {
     private ColaboradorViewModel colaboradorViewModel;
     private ListView listViewColaboradores;
     private SwipeActionAdapter mAdapter;
+    private Dialog dialog;
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
@@ -28,6 +33,11 @@ public class ColaboradorFragment extends Fragment {
     }
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        setHasOptionsMenu(true);
+        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+        builder.setView(R.layout.progress);
+        dialog = builder.create();
+        dialog.show();
         colaboradorViewModel = ViewModelProviders.of(this).get(ColaboradorViewModel.class);
         View root = inflater.inflate(R.layout.fragment_colaborador_list, container, false);
         colaboradorViewModel.init();
@@ -42,11 +52,9 @@ public class ColaboradorFragment extends Fragment {
                     .addBackground(SwipeDirection.DIRECTION_FAR_RIGHT,R.layout.row_bg_right_far)
                     .addBackground(SwipeDirection.DIRECTION_NORMAL_RIGHT,R.layout.row_bg_right);
             mAdapter.setSwipeActionListener(new ColaboradorSwipeActionListener(getContext(), mAdapter));
+            dialog.dismiss();
         });
 
         return root;
     }
-
-
-
 }

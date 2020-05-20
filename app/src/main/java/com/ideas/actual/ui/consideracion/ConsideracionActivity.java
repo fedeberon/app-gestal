@@ -1,5 +1,7 @@
 package com.ideas.actual.ui.consideracion;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -13,10 +15,15 @@ public class ConsideracionActivity extends AppCompatActivity {
 
     private ConsideracionEvaluadaViewModel consideracionEvaluadaViewModel;
     private ListView listViewEvaluacion;
+    private Dialog dialog;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setView(R.layout.progress);
+        dialog = builder.create();
+        dialog.show();
         ItemEvaluado itemEvaluado = this.getItemEvaluado();
         this.setTitle("Item: ".concat(itemEvaluado.getItem().getValue()));
         setContentView(R.layout.fragment_consideracion_list);
@@ -28,11 +35,8 @@ public class ConsideracionActivity extends AppCompatActivity {
         consideracionEvaluadaViewModel.getData().observe(this, consideracions -> {
             ConsideracionEvaluadaAdapter  adapter = new ConsideracionEvaluadaAdapter(this, consideracions);
             listViewEvaluacion.setAdapter(adapter);
+            dialog.dismiss();
         });
-    }
-
-    private void backToHome() {
-        finish();
     }
 
     private ItemEvaluado getItemEvaluado() {

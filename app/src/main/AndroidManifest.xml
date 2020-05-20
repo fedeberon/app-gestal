@@ -16,7 +16,6 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning">
-
         <activity
             android:name=".SplashActivity"
             android:theme="@style/SplashTheme">
@@ -26,31 +25,26 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".StartActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <activity
+            android:name=".StartActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".ui.colaborador.ColaboradorActivity"
             android:label="Resultado de Evaluacion" />
         <activity
             android:name=".ui.consideracion.ConsideracionDialogFragment"
             android:label="Consideraciones a Evaluar" />
-        <activity
-            android:name=".ui.evaluacion.EvaluacionActivity"
-            android:label="Evaluacion de Colaborador" />
+        <activity android:name=".ui.evaluacion.EvaluacionActivity"/>
         <activity
             android:name=".HomeActivity"
             android:label="@string/title_activity_home"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".LoginActivity"
-            android:label="@string/app_name">
-        </activity>
-
+            android:label="@string/app_name"></activity>
         <activity
             android:name=".ui.consideracion.ConsideracionActivity"
-            android:label="Consideraciones"/>
-
+            android:label="Consideraciones" />
 
         <service android:name=".services.AuthenticatorService">
             <intent-filter>
