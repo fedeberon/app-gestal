@@ -32,6 +32,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -43,6 +44,7 @@ public class EvaluacionActivity extends AppCompatActivity {
     private ListView listViewEvaluacion;
     private Button btnSave;
     private TextView txtIdEvaluacion;
+    private TextView textNotFound;
     private Colaborador colaborador;
     private EvaluacionService evaluacionService = RetrofitServiceFactory.createService(EvaluacionService.class);
     private List<ConsideracionItemEvaluado> consideraciones;
@@ -62,6 +64,7 @@ public class EvaluacionActivity extends AppCompatActivity {
         dialog.show();
         listViewEvaluacion = (ListView) findViewById(R.id.evaluacion);
         txtIdEvaluacion = findViewById(R.id.txtIdEvaluacion);
+        textNotFound = findViewById(R.id.text_not_foud);
 
         evaluacionViewModel = ViewModelProviders.of(this).get(EvaluacionViewModel.class);
         colaborador = getColaboradorEvaluado();
@@ -74,13 +77,17 @@ public class EvaluacionActivity extends AppCompatActivity {
         listViewEvaluacion.addFooterView(btnSave);
 
         btnSave.setOnClickListener(view -> save());
-        evaluacionViewModel.init(colaborador.getRol());
+        evaluacionViewModel.init(colaborador.getPuesto());
         evaluacionViewModel.getData().observe(this, response -> {
-            ItemArrayAdapter adapter = new ItemArrayAdapter(this, response.getItems(), this);
-            txtIdEvaluacion.setText(response.getId().toString());
-            this.setTitle(Utils.getDataColaborador(colaborador));
+            if(Objects.nonNull(response)){
+                ItemArrayAdapter adapter = new ItemArrayAdapter(this, response.getItems(), this);
+                txtIdEvaluacion.setText(response.getId().toString());
+                this.setTitle(Utils.getDataColaborador(colaborador));
+                listViewEvaluacion.setAdapter(adapter);
+            } else {
+                textNotFound.setVisibility(View.VISIBLE);
+            }
             setDialog(false);
-            listViewEvaluacion.setAdapter(adapter);
         });
 
     }
@@ -90,7 +97,7 @@ public class EvaluacionActivity extends AppCompatActivity {
         ArrayList<ItemEvaluado> itemsEvaluados = this.getItemsEvaluados();
         EvaluacionDelColaborador evaluacionDelColaborador = new EvaluacionDelColaborador();
         evaluacionDelColaborador.setColaborador(colaborador);
-        evaluacionDelColaborador.setRolEvaluado(colaborador.getRol());
+        evaluacionDelColaborador.setRolEvaluado(colaborador.getPuesto());
         evaluacionDelColaborador.setItemEvaluados(itemsEvaluados);
         Toast.makeText(EvaluacionActivity.this,"Guardando...",Toast.LENGTH_LONG).show();
         Call<EvaluacionDelColaborador> call = evaluacionService.save(evaluacionDelColaborador);

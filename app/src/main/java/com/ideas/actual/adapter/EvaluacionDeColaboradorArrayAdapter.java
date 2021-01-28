@@ -38,10 +38,10 @@ public class EvaluacionDeColaboradorArrayAdapter extends ArrayAdapter<Evaluacion
         name.setText(evaluacion.getColaborador().getName());
 
         TextView lastName = convertView.findViewById(R.id.lastName);
-        lastName.setText(evaluacion.getColaborador().getLastName());
+        //lastName.setText(evaluacion.getColaborador().getLastName());
 
         TextView rol = convertView.findViewById(R.id.rol);
-        rol.setText(evaluacion.getColaborador().getRol().getName());
+        //rol.setText(evaluacion.getColaborador().getRol().getName());
 
         Button buttonToEvaluate = convertView.findViewById(R.id.button_evaluate);
         buttonToEvaluate.setText("Ver");

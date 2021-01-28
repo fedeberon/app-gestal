@@ -52,8 +52,8 @@ public class ColaboradorActivity extends AppCompatActivity {
         evaluacionDeColaboradorViewModel.getData().observe(this, itemEvaluados -> {
             ItemEvaluadoAdapter adapter = new ItemEvaluadoAdapter(this, itemEvaluados);
             txtNombreHeader.setText(evaluacionDelColaborador.getColaborador().getName());
-            txtApellidoHeader.setText(evaluacionDelColaborador.getColaborador().getLastName());
-            txtRolHeader.setText(evaluacionDelColaborador.getColaborador().getRol().getName());
+            //txtApellidoHeader.setText(evaluacionDelColaborador.getColaborador().getLastName());
+            //txtRolHeader.setText(evaluacionDelColaborador.getColaborador().getRol().getName());
             txtFechaHeader.setText(Utils.parseDate(evaluacionDelColaborador.getFechaDeCarga()));
             listViewEvaluacion.setAdapter(adapter);
             dialog.dismiss();

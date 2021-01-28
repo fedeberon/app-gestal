@@ -5,7 +5,7 @@ import android.arch.lifecycle.MutableLiveData;
 import android.arch.lifecycle.ViewModel;
 
 import com.ideaas.services.domain.Evaluacion;
-import com.ideaas.services.domain.Rol;
+import com.ideaas.services.domain.Puesto;
 import com.ideas.actual.configuration.RetrofitServiceFactory;
 import com.ideas.actual.services.EvaluacionService;
 
@@ -18,13 +18,19 @@ public class EvaluacionViewModel extends ViewModel {
     private MutableLiveData<Evaluacion> dataEvaluacion;
     private EvaluacionService evaluacionService = RetrofitServiceFactory.createService(EvaluacionService.class);
 
-    public void init(Rol rol){
+    public void init(Puesto puesto){
         dataEvaluacion = new MutableLiveData<>();
-        Call<Evaluacion> call = evaluacionService.getByRol(rol);
+        Call<Evaluacion> call = evaluacionService.getByPuesto(puesto);
         call.enqueue(new Callback<Evaluacion>() {
             @Override
             public void onResponse(Call<Evaluacion> call, Response<Evaluacion> response) {
-                dataEvaluacion.setValue(response.body());
+                if(response.isSuccessful()){
+                    dataEvaluacion.setValue(response.body());
+                } else {
+                    dataEvaluacion.setValue(null);
+                }
+
+
             }
 
             @Override

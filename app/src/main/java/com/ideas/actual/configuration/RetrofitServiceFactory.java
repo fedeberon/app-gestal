@@ -9,10 +9,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitServiceFactory {
     /*public static final String API_BASE_URL = "http://164.68.101.162:8084/api";*/
-    /*public static final String API_BASE_URL = "http://10.0.2.2:8084/api";*/
-    public static final String API_BASE_URL = "http://192.168.0.106:8084/api";
-
-
+    /*public static final String API_BASE_URL = "http://66.97.46.194:8084/api";*/
+    public static final String API_BASE_URL = "http://192.168.0.104:8084/api";
 
     private static OkHttpClient.Builder httpClient = new OkHttpClient.Builder();
     private static Retrofit.Builder builder = new Retrofit.Builder().baseUrl(API_BASE_URL + "/")

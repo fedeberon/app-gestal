@@ -28,14 +28,17 @@ public class ColaboradorArrayAdapter extends ArrayAdapter<Colaborador> {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.simple_row_colaborador, parent, false);
         }
 
+        TextView id = convertView.findViewById(R.id.id);
+        id.setText(String.valueOf(colaborador.getId()));
+
         TextView name = convertView.findViewById(R.id.name);
         name.setText(colaborador.getName());
 
         TextView lastName = convertView.findViewById(R.id.lastName);
-        lastName.setText(colaborador.getLastName());
+        lastName.setText(colaborador.getUsername());
 
         TextView rol = convertView.findViewById(R.id.rol);
-        rol.setText(colaborador.getRol().getName());
+        rol.setText(colaborador.getPuesto().getName());
 
         Button buttonToEvaluate = convertView.findViewById(R.id.button_evaluate);
         buttonToEvaluate.setOnClickListener(v -> goToEvaluation(v, colaborador));
