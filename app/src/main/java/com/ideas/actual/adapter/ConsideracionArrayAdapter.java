@@ -7,8 +7,8 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-import com.ideaas.services.domain.Consideracion;
 import com.ideas.actual.R;
+import com.ideas.actual.model.Consideracion;
 
 import java.util.List;
 

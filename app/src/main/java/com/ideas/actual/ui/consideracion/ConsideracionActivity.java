@@ -6,10 +6,9 @@ import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ListView;
-
-import com.ideaas.services.domain.ItemEvaluado;
 import com.ideas.actual.R;
 import com.ideas.actual.adapter.ConsideracionEvaluadaAdapter;
+import com.ideas.actual.model.ItemEvaluado;
 
 public class ConsideracionActivity extends AppCompatActivity {
 

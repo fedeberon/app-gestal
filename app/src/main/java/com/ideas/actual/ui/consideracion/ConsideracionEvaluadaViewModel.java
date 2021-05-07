@@ -4,9 +4,9 @@ import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;
 import android.arch.lifecycle.ViewModel;
 
-import com.ideaas.services.domain.ConsideracionItemEvaluado;
-import com.ideaas.services.domain.ItemEvaluado;
 import com.ideas.actual.configuration.RetrofitServiceFactory;
+import com.ideas.actual.model.ConsideracionItemEvaluado;
+import com.ideas.actual.model.ItemEvaluado;
 import com.ideas.actual.services.ItemEvaluadoService;
 
 import java.util.Arrays;

@@ -10,9 +10,8 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.TextView;
 
-import com.ideaas.services.domain.ConsideracionItemEvaluado;
-import com.ideaas.services.domain.EvaluacionDelColaborador;
 import com.ideas.actual.R;
+import com.ideas.actual.model.ConsideracionItemEvaluado;
 
 import java.util.List;
 

@@ -12,11 +12,11 @@ import android.widget.CheckBox;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.ideaas.services.domain.Consideracion;
-import com.ideaas.services.domain.ConsideracionItemEvaluado;
-import com.ideaas.services.domain.Item;
 import com.ideas.actual.R;
 import com.ideas.actual.adapter.ConsideracionArrayAdapter;
+import com.ideas.actual.model.Consideracion;
+import com.ideas.actual.model.ConsideracionItemEvaluado;
+import com.ideas.actual.model.Item;
 
 import java.util.ArrayList;
 

@@ -10,8 +10,8 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.ideaas.services.domain.Item;
 import com.ideas.actual.R;
+import com.ideas.actual.model.Item;
 import com.ideas.actual.ui.consideracion.ConsideracionDialogFragment;
 import com.ideas.actual.ui.evaluacion.EvaluacionActivity;
 

@@ -1,6 +1,6 @@
 package com.ideas.actual;
 
-import com.ideaas.services.domain.Colaborador;
+import com.ideas.actual.model.Colaborador;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

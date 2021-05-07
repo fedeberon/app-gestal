@@ -12,8 +12,8 @@ import android.widget.Button;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
-import com.ideaas.services.domain.ItemEvaluado;
 import com.ideas.actual.R;
+import com.ideas.actual.model.ItemEvaluado;
 import com.ideas.actual.ui.consideracion.ConsideracionActivity;
 
 import java.util.List;

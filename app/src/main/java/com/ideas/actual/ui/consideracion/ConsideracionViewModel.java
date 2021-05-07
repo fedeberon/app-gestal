@@ -4,7 +4,7 @@ import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;
 import android.arch.lifecycle.ViewModel;
 
-import com.ideaas.services.domain.Consideracion;
+import com.ideas.actual.model.Consideracion;
 import com.ideas.actual.ui.colaborador.ColaboradorViewModel;
 
 import java.util.List;

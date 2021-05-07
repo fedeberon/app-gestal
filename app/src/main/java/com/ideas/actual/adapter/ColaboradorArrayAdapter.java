@@ -9,8 +9,8 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.ideaas.services.domain.Colaborador;
 import com.ideas.actual.R;
+import com.ideas.actual.model.Colaborador;
 import com.ideas.actual.ui.evaluacion.EvaluacionActivity;
 
 import java.util.List;

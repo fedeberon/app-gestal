@@ -2,7 +2,6 @@ package com.ideas.actual.ui.evaluacion;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
-import android.app.ProgressDialog;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
 import android.graphics.Color;
@@ -11,20 +10,19 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.ProgressBar;
 import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.ideaas.services.domain.Colaborador;
-import com.ideaas.services.domain.ConsideracionItemEvaluado;
-import com.ideaas.services.domain.EvaluacionDelColaborador;
-import com.ideaas.services.domain.Item;
-import com.ideaas.services.domain.ItemEvaluado;
 import com.ideas.actual.R;
 import com.ideas.actual.Utils;
 import com.ideas.actual.adapter.ItemArrayAdapter;
 import com.ideas.actual.configuration.RetrofitServiceFactory;
+import com.ideas.actual.model.Colaborador;
+import com.ideas.actual.model.ConsideracionItemEvaluado;
+import com.ideas.actual.model.EvaluacionDelColaborador;
+import com.ideas.actual.model.Item;
+import com.ideas.actual.model.ItemEvaluado;
 import com.ideas.actual.services.EvaluacionService;
 import com.ideas.actual.ui.colaborador.ColaboradorActivity;
 

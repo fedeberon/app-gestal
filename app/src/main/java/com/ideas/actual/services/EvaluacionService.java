@@ -1,9 +1,9 @@
 package com.ideas.actual.services;
 
-import com.ideaas.services.domain.Evaluacion;
-import com.ideaas.services.domain.EvaluacionDelColaborador;
-import com.ideaas.services.domain.Puesto;
-import com.ideaas.services.domain.Rol;
+import com.ideas.actual.model.Evaluacion;
+import com.ideas.actual.model.EvaluacionDelColaborador;
+import com.ideas.actual.model.Puesto;
+import com.ideas.actual.model.Rol;
 
 import retrofit2.Call;
 import retrofit2.http.Body;

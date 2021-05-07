@@ -4,8 +4,8 @@ import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;
 import android.arch.lifecycle.ViewModel;
 
-import com.ideaas.services.domain.Colaborador;
 import com.ideas.actual.configuration.RetrofitServiceFactory;
+import com.ideas.actual.model.Colaborador;
 import com.ideas.actual.services.ColaboradorService;
 
 import java.util.Arrays;

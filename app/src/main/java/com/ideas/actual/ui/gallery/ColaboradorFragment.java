@@ -9,7 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.ideaas.services.domain.EvaluacionDelColaborador;
 import com.ideas.actual.R;
 
 public class ColaboradorFragment extends Fragment {

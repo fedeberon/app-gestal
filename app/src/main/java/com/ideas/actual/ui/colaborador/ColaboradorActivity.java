@@ -9,10 +9,10 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.ideaas.services.domain.EvaluacionDelColaborador;
 import com.ideas.actual.R;
 import com.ideas.actual.Utils;
 import com.ideas.actual.adapter.ItemEvaluadoAdapter;
+import com.ideas.actual.model.EvaluacionDelColaborador;
 import com.ideas.actual.ui.evaluacion.EvaluacionDeColaboradorViewModel;
 
 public class ColaboradorActivity extends AppCompatActivity {

@@ -1,6 +1,6 @@
 package com.ideas.actual.services;
 
-import com.ideaas.services.domain.ConsideracionItemEvaluado;
+import com.ideas.actual.model.ConsideracionItemEvaluado;
 
 import java.util.List;
 

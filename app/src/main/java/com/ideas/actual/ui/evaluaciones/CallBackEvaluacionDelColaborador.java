@@ -2,11 +2,10 @@ package com.ideas.actual.ui.evaluaciones;
 
 import android.arch.lifecycle.MutableLiveData;
 
-import com.ideaas.services.domain.EvaluacionDelColaborador;
+import com.ideas.actual.model.EvaluacionDelColaborador;
 
 import java.util.Arrays;
 import java.util.List;
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;

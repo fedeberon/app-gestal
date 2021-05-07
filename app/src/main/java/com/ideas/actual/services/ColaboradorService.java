@@ -1,6 +1,6 @@
 package com.ideas.actual.services;
 
-import com.ideaas.services.domain.Colaborador;
+import com.ideas.actual.model.Colaborador;
 
 import java.util.List;
 

@@ -4,9 +4,9 @@ import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;
 import android.arch.lifecycle.ViewModel;
 
-import com.ideaas.services.domain.Evaluacion;
-import com.ideaas.services.domain.Puesto;
 import com.ideas.actual.configuration.RetrofitServiceFactory;
+import com.ideas.actual.model.Evaluacion;
+import com.ideas.actual.model.Puesto;
 import com.ideas.actual.services.EvaluacionService;
 
 import retrofit2.Call;
