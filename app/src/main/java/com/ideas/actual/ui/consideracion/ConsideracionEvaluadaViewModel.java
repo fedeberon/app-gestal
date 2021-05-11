@@ -1,8 +1,8 @@
 package com.ideas.actual.ui.consideracion;
 
-import android.arch.lifecycle.LiveData;
-import android.arch.lifecycle.MutableLiveData;
-import android.arch.lifecycle.ViewModel;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
+import androidx.lifecycle.ViewModel;
 
 import com.ideas.actual.configuration.RetrofitServiceFactory;
 import com.ideas.actual.model.ConsideracionItemEvaluado;

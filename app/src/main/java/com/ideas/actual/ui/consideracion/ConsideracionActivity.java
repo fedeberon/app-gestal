@@ -2,9 +2,9 @@ package com.ideas.actual.ui.consideracion;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
-import android.arch.lifecycle.ViewModelProviders;
+import androidx.lifecycle.ViewModelProviders;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.widget.ListView;
 import com.ideas.actual.R;
 import com.ideas.actual.adapter.ConsideracionEvaluadaAdapter;
